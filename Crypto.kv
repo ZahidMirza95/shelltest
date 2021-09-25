@@ -1,3 +1,8 @@
+
+WindowManager:
+    Crypto:
+    InfoPage:
+
 <EachItem@BoxLayout>:
     canvas.before:
         Color:
@@ -9,7 +14,9 @@
     Button:
         id: cryptoList
         text: root.value
-
+        on_release:
+            app.root.current = "second"
+        
 
 <Crypto>:
     rows: 1
@@ -24,11 +31,11 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-        TextInput:
-            hint_text: 'Search'
-            size_hint_y: None
-            height: 50
-
+        Button:
+            text:"testing"
+            on_release:
+                app.root.current="second"
+         
         RecycleView:
             text: "Hello This is Crypto Currency App - ROW2"
             id: coinList
@@ -43,4 +50,14 @@
                 default_size_hint: 0.5, None
                 orientation: 'vertical'
                 spacing: 10
+
+<InfoPage>:
+    name: "second"
+    Button:
+        text: "Go Back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
+
 
