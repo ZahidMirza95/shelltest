@@ -7,19 +7,44 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.properties import StringProperty
 from kivy.clock import Clock
-
+from kivy.uix.widget import Widget
+from kivy.properties import NumericProperty, ReferenceListProperty,\
+ObjectProperty
+currency=''
 
 class Crypto(Screen):
     def doSomething(instance,test):
         print(test)
-    def update(self):
-        self.ids.buttonTwo.text="nice"
+    def update(self,val):
+        currency=val
+        print(currency)
+        test= InfoPage()
+        test.ids.infoButton.text
 
+#sm=ScreenManager()
 
 class InfoPage(Screen):
+
+    test_label = ObjectProperty()
+    #def __init__(self, **kwargs):
+     #  self.ids.infoButton.text
+      #  print(self.ids.infoButton.text)
+    
+    
+        
+   # def update(self):
+        # self.ids.buttonTwo.text=currency
+        #test=self
     pass
+
+   
+    
+
+
+
 class WindowManager(ScreenManager):
     pass
+
 kv = Builder.load_file("Crypto.kv")
 '''class Crypto(GridLayout):
 

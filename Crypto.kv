@@ -5,47 +5,66 @@ WindowManager:
 
 
 <Crypto>:
+
     name:"main"
     rows: 1
     spacing: 10
     GridLayout:
-        cols: 1
+        
+        cols: 2
         rows: 5
         spacing: 10
         canvas:
             Color:
                 rgba: 1, 1, 1, .1
-            Rectangle:
-                size: self.size
-                pos: self.pos
+          
         Button:
+            pos_hint: {'x': 0.0, 'y': 0.5}
             id:test1
-            text:"hello"
-            bar_width:10
+            size_hint_x: None
+            text:"ETHEREUM"
+            width:root.width/2
+            on_release:
+                app.root.current="second"
+                root.update("ETHEREUM")
+                root.manager.get_screen('second').infoButton.text = str("ETHEREUM")
         Button:
             id:buttonTwo
-            text:"testing2"
+            text:"DOGECOIN"
+            size_hint_x: None
+            width:root.width/2
             on_release:
                 app.root.current="second"
-                root.update()
+                root.update("DOGECOIN")
+                root.manager.get_screen('second').infoButton.text = str("DOGECOIN")
         Button:
             id:buttonThree
-            text:"testing3"
+            text:"BITCOIN"
+            size_hint_x: None
+            width:root.width/2
             on_release:
                 app.root.current="second"
-                root.update()
+                root.update("BITCOIN")
+                root.manager.get_screen('second').infoButton.text = str("BITCOIN")
         Button:
             id:buttonFour
-            text:"testing4"
+            text:"MIAMICOIN"
+            size_hint_x: None
+            width:root.width/2
             on_release:
                 app.root.current="second"
-                root.update()
+                root.update("MIAMICOIN")
+                root.manager.get_screen('second').infoButton.text = str("MIAMICOIN")
         Button:
             id:buttonFive
-            text:"testing5"
+            text:"TETHER"
+            size_hint_x: None
+            width:root.width/2
             on_release:
                 app.root.current="second"
-                root.update()
+                root.update("TETHER")
+                root.manager.get_screen('second').infoButton.text = str("TETHER")
+   
          
          
                 
@@ -53,8 +72,10 @@ WindowManager:
          
 
 <InfoPage>:
+    infoButton:infoButton
     name: "second"
     Button:
+        id:infoButton
         text: "Go Back"
         on_release:
             app.root.current = "main"
