@@ -3,20 +3,6 @@ WindowManager:
     Crypto:
     InfoPage:
 
-<EachItem@BoxLayout>:
-    canvas.before:
-        Color:
-            rgba: 0.5, 0.5, 0.5, 1
-        Rectangle:
-            size: self.size
-            pos: self.pos
-    value: ''
-    Button:
-        id: cryptoList
-        text: root.value
-        on_release:
-            app.root.current = "second"
-        
 
 <Crypto>:
     name:"main"
@@ -24,7 +10,7 @@ WindowManager:
     spacing: 10
     GridLayout:
         cols: 1
-        rows: 2
+        rows: 5
         spacing: 10
         canvas:
             Color:
@@ -33,24 +19,38 @@ WindowManager:
                 size: self.size
                 pos: self.pos
         Button:
-            text:"testing"
+            id:test1
+            text:"hello"
+            bar_width:10
+        Button:
+            id:buttonTwo
+            text:"testing2"
             on_release:
                 app.root.current="second"
+                root.update()
+        Button:
+            id:buttonThree
+            text:"testing3"
+            on_release:
+                app.root.current="second"
+                root.update()
+        Button:
+            id:buttonFour
+            text:"testing4"
+            on_release:
+                app.root.current="second"
+                root.update()
+        Button:
+            id:buttonFive
+            text:"testing5"
+            on_release:
+                app.root.current="second"
+                root.update()
          
-        RecycleView:
-            text: "Hello This is Crypto Currency App - ROW2"
-            id: coinList
-            bar_width: 3
-            scroll_type: ['bars', 'content']
-            scroll_wheel_distance: 120
-            viewclass: 'EachItem' # custom Boxlayout above to the root widget
-            RecycleBoxLayout:
-                size_hint_y: None
-                height: self.minimum_height
-                default_size: None, 60
-                default_size_hint: 0.5, None
-                orientation: 'vertical'
-                spacing: 10
+         
+                
+         
+         
 
 <InfoPage>:
     name: "second"
