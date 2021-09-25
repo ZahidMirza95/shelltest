@@ -1,5 +1,62 @@
+WindowManager:
+   Crypto:
+   InfoPage:
+
+<EachItem@BoxLayout>:
+      canvas.before:
+         Color:
+               rgba: 0.5, 0.5, 0.5, 1
+         Rectangle:
+               size: self.size
+               pos: self.pos
+      value: ''
+      Button:
+         id: cryptoList
+         text: root.value
+         on_release:
+         app.root.current = "second"
+         root.manager.transition.direction = "left"
+
+
 <Crypto>:
-   rows: 1
-   spacing: 10
-   Label:
-      text: "Hello world"    
+    name: "main"
+    rows: 1
+    spacing: 10
+    GridLayout:
+        cols: 1
+        rows: 2
+        spacing: 10
+        canvas:
+            Color:
+                rgba: 1, 1, 1, .1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            hint_text: 'Search'
+            size_hint_y: None
+            height: 50
+
+        RecycleView:
+            text: "Hello This is Crypto Currency App - ROW2"
+            id: coinList
+            bar_width: 3
+            scroll_type: ['bars', 'content']
+            scroll_wheel_distance: 120
+            viewclass: 'EachItem' # custom Boxlayout above to the root widget
+            RecycleBoxLayout:
+                size_hint_y: None
+                height: self.minimum_height
+                default_size: None, 60
+                default_size_hint: 0.5, None
+                orientation: 'vertical'
+                spacing: 10
+
+<InfoPage>:
+   name: "second"
+
+   Button:
+      text: "Go Back"
+      on_release:
+          app.root.current = "main"
+           root.manager.transition.direction = "right"
