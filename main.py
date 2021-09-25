@@ -16,18 +16,12 @@ class Crypto(GridLayout):
         self.ids.coinList.data = [{'value': str(i)} for i in range(20)]
 
 class CryptoApp(App):
-
     # This returns the content we want in the window
     def build(self):
         # Return a label widget with Hello Kivy
         return Crypto()
         # return Label(text='Hello world')
 
-class InfoPage(App):
-    pass
-
-class WindowManager(ScreenManager):
-    pass
 
 
 if __name__ == "__main__":
