@@ -72,14 +72,26 @@ WindowManager:
          
 
 <InfoPage>:
+    name:"second"
     infoButton:infoButton
-    name: "second"
-    Button:
-        id:infoButton
-        text: "Go Back"
-        on_release:
-            app.root.current = "main"
-            root.manager.transition.direction = "right"
+    BoxLayout:
+        id:box 
+        size_hint_y:.8
+        pos_hint:{"top":1}
+
+    BoxLayout:
+        size_hint_y:.2
+        TextInput:
+            id:namer
+            multiline:False
+        Button:
+            id:infoButton
+            text: "Go Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+    
+  
 
 
 

@@ -8,8 +8,10 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.properties import StringProperty
 from kivy.clock import Clock
 from kivy.uix.widget import Widget
-from kivy.properties import NumericProperty, ReferenceListProperty,\
-ObjectProperty
+
+from kivy.uix.floatlayout import FloatLayout
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasAgg
+import matplotlib.pyplot as plt
 currency=''
 
 class Crypto(Screen):
@@ -24,8 +26,9 @@ class Crypto(Screen):
 #sm=ScreenManager()
 
 class InfoPage(Screen):
-
-    test_label = ObjectProperty()
+    def __init__(self, **kwargs):
+        super(InfoPage, self).__init__(**kwargs)
+        #box=self.ids.box
     #def __init__(self, **kwargs):
      #  self.ids.infoButton.text
       #  print(self.ids.infoButton.text)
@@ -36,7 +39,12 @@ class InfoPage(Screen):
         # self.ids.buttonTwo.text=currency
         #test=self
     pass
-
+x=[1,2,3,4,5]
+y=[1,2,3,4,5]
+plt.plot(x,y)
+#plt.ylabel("y axis")
+#plt.xlabel("x axis")
+#plt.show()
    
     
 
